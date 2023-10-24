@@ -26,6 +26,7 @@ services: #所有服务的入口  固定写法
       - ./redis-slave1/redis.conf:/etc/redis/redis.conf
       - ./redis-slave1/data:/data
     # 从主节点同步数据到从节点
+    # 下面的ip修改为宿主机的ip
     command: bash -c "redis-server /etc/redis/redis.conf  --slaveof 172.30.208.1 6379"
     depends_on:
       - redis-master
